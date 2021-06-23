@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['PLATZI_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['intelligencecode.com']
+ALLOWED_HOSTS = ['.intelligencecode.com']
 
 
 # Application definition
