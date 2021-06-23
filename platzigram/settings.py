@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g%#mue@@9+%3+q!e7b0%eh9dg2=kbxs-#35(h5!em)fz&2!=2$'
+SECRET_KEY = os.environ['PLATZI_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['intelligencecode.com']
 
 
 # Application definition
@@ -106,8 +106,12 @@ WSGI_APPLICATION = 'platzigram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('PLATZI_DB_NAME'),
+        'USER': os.getenv('PLATZI_DB_USER'),
+        'PASSWORD': os.getenv('PLATZI_DB_PASSWORD'),
+        'HOST': os.getenv('PLATZI_DB_HOST'),
+        'PORT': os.getenv('PLATZI_DB_PORT'),
     }
 }
 
